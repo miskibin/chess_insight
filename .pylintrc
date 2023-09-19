@@ -1,0 +1,2 @@
+[MASTER]
+disable = missing-function-docstring, missing-class-docstring, missing-module-docstring,too-many-arguments, no-member, import-error, too-few-public-methods, too-many-instance-attributes

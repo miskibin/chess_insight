@@ -1,0 +1,6 @@
+stockfish
+easy-logs
+chess
+berserk
+chess.com
+pandas

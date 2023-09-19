@@ -1,0 +1,31 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-json
+      - id: name-tests-test
+        args: [--pytest-test-first]
+  - repo: https://github.com/psf/black
+    rev: 23.1.0
+    hooks:
+      - id: black
+
+  - repo: local
+    hooks:
+      - id: pylint
+        args: ["--fail-under=8.0", "--ignore-patterns=test_.*?py"]
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+      - id: pytest-check
+        name: pytest-check
+        entry: pytest
+        language: system
+        pass_filenames: false
+        always_run: true
