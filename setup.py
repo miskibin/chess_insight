@@ -2,12 +2,15 @@ from pathlib import Path
 
 import setuptools
 
-__version__ = "0.6.1"
+__version__ = "0.6.3"
 __author__ = "Michał Skibiński"
 
 this_directory = Path(__file__).parent
 
 with open(this_directory / "requirements.txt") as f:
+    requirements = f.read().splitlines()
+
+with open(this_directory / "README.md") as f:
     requirements = f.read().splitlines()
 
 

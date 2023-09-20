@@ -1,10 +1,12 @@
 from __future__ import annotations
 from abc import ABC
 from enum import Enum
-from rich.console import Console
-from rich.markdown import Markdown
+
 from typing import get_type_hints
 from collections.abc import MutableMapping
+from easy_logs import get_logger
+
+logger = get_logger()
 
 
 class SemiDataclass(ABC):
@@ -14,9 +16,15 @@ class SemiDataclass(ABC):
         """
         Prints markdown documentation of class.
         """
-        console = Console()
-        md = Markdown(self.markdown_docs())
-        console.print(md)
+        try:
+            from rich.console import Console
+            from rich.markdown import Markdown
+
+            console = Console()
+            md = Markdown(self.markdown_docs())
+            console.print(md)
+        except ImportError:
+            logger.warning("To run this function run command `pip install rich`")
 
     def markdown_docs(self) -> str:
         docs_content = "## " + self.__class__.__name__ + "\n\n"
