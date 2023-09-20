@@ -28,6 +28,13 @@ games += c2.games_generator("your chess com username", 10, "blitz")
 chess_insight.export_games_to_csv(list(games))
 ```
 
+- get games as dict
+
+```python
+for game in games:
+    print(game.asdict())
+```
+
 ## Architecture 
 
 ### Game object
