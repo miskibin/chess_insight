@@ -64,7 +64,8 @@ def get_time_class(
 
 def load_eco() -> list[str]:
     with open(
-        os.path.join(Path(__file__).parent, Path("openings.json")), encoding="utf-8"
+        os.path.join(Path(__file__).parent / "data" / Path("openings.json")),
+        encoding="utf-8",
     ) as f:
         eco = json.load(f)
     return eco
