@@ -1,6 +1,12 @@
 # Chess-insight
 
-Modern package for analyzing chess games. It provides method to download games from `lichess.org` and `chess.com` and analyze them using `stockfish` engine. Parses games to `Game` object which contains all information about game and players. `Game` object can be converted to `dict` or `json` for further processing.
+__Modern package for analyzing chess games.__
+ I
+### Features:
+1. Download games from `lichess.org` and `chess.com`
+2. Analyze games using set of custom methods and `stockfish-16` engine.
+3. Parses games to `Game` object which contains all information about game and players to python object and `json`.
+4. Provides method for exporting list of analyzed games to `csv`
 
 ## Installation
 
