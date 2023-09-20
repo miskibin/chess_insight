@@ -24,8 +24,8 @@ pip install chess-insight
 ```python
 from chess_insight import ChessComApiCommunicator, LichessApiCommunicator
 
-c1 = LichessApiCommunicator(depth=1)
-c2 = ChessComApiCommunicator(depth=1)
+c1 = LichessApiCommunicator()
+c2 = ChessComApiCommunicator()
 
 games = c1.games_generator("your lichess username", 10, "blitz")
 games += c2.games_generator("your chess com username", 10, "blitz")
