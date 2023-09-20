@@ -2,7 +2,7 @@ from pathlib import Path
 
 import setuptools
 
-__version__ = "0.7.1"
+__version__ = "0.7.2"
 __author__ = "Michał Skibiński"
 
 this_directory = Path(__file__).parent
@@ -28,6 +28,7 @@ setuptools.setup(
     long_description=readme,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
+    package_data={"chess_insights": "openings.json"},
     license="GPL-3.0+",
     keywords=" chess, statistic, game, board",
     url="https://github.com/michalskibinski109/chess-insight",
