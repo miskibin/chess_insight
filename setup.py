@@ -2,7 +2,7 @@ from pathlib import Path
 
 import setuptools
 
-__version__ = "0.0.1"
+__version__ = "0.6.1"
 __author__ = "Michał Skibiński"
 
 this_directory = Path(__file__).parent
@@ -18,12 +18,11 @@ setuptools.setup(
     version=__version__,
     author=__author__,
     author_email="mskibinski109@gmail.com",
-    # description="""
-    #     A draughts library with advenced (customizable) WEB UI move generation and validation,
-    #     PDN parsing and writing. Supports multiple variants of game.
-    #     """.replace(
-    #     "\n", " "
-    # ).strip(),
+    description="""
+        Modern package for analyzing chess games. 
+        """.replace(
+        "\n", " "
+    ).strip(),
     long_description=long_description,
     # rst
     long_description_content_type="text/markdown",
