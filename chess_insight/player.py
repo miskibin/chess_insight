@@ -41,17 +41,15 @@ class Player(SemiDataclass):
         """
         list with average move time for each phase.
         """
+        data = {}
         if len(self._evaluations) < 3:
             return {}
         idx = 0 if self._color == Color.WHITE else 1
         times = [item["time"] for item in self._evaluations]
-        return {
-            GamePhase.OPENING: mean(times[idx : self._phases[GamePhase.OPENING] : 2]),
-            GamePhase.MIDDLE_GAME: mean(
-                times[idx : self._phases[GamePhase.MIDDLE_GAME] : 2]
-            ),
-            GamePhase.END_GAME: mean(times[idx : self._phases[GamePhase.END_GAME] : 2]),
-        }
+        for phase in GamePhase:
+            vals = times[idx : self._phases[phase] : 2]
+            data[phase] = mean(vals) if vals else 0
+        return data
 
     @property
     def accuracy(self) -> dict:

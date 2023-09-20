@@ -14,7 +14,7 @@ class LichessApiCommunicator(ApiCommunicator):
     SESSION = berserk.TokenSession(token=os.getenv("LICHESS_API_TOKEN"))
     CLIENT = berserk.Client(session=SESSION)
 
-    def get_games(self, username: str, count: int, time_class: str) -> list[str]:
+    def get_pgns(self, username: str, count: int, time_class: str) -> list[str]:
         games = self.CLIENT.games.export_by_player(
             username, max=count, perf_type=time_class, as_pgn=True, clocks=True
         )
