@@ -26,10 +26,11 @@ games += c2.games_generator("your chess com username", 10, "blitz")
 
 ```python 
 chess_insight.export_games_to_csv(list(games))
-
 ```
 
-## Game
+## Architecture 
+
+### Game object
 
 | Attribute          | Description                                                                                       |
 | ------------------ | ------------------------------------------------------------------------------------------------- |
@@ -49,7 +50,7 @@ chess_insight.export_games_to_csv(list(games))
 | `opponent`         | Dict containing opponent data.                                                                    |
 | `url`              | Url to game.                                                                                      |
 
-## Player
+### Player object
 
 | Attribute       | Description                                  |
 | --------------- | -------------------------------------------- |
