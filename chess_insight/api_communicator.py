@@ -9,6 +9,7 @@ import requests
 from stockfish import Stockfish
 from easy_logs import get_logger
 from chess_insight.game import Game
+from rich.progress import track
 
 logger = get_logger()
 
@@ -59,7 +60,13 @@ class ApiCommunicator(ABC):
         """
         list_of_pgns = self.get_pgns(username, count, time_class)
         logger.info(f"Collected {len(list_of_pgns)} games")
-        for game in list_of_pgns:
+        progress = track(
+            list_of_pgns,
+            description=f"Analyzing games for {username}",
+            total=len(list_of_pgns),
+            transient=True,
+        )
+        for game in progress:
             game = Game(
                 game,
                 username,

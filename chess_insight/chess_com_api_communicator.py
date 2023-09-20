@@ -26,7 +26,7 @@ class ChessComApiCommunicator(ApiCommunicator):
         for y in range(datetime.now().year, joined_year - 1, -1):
             month = int(datetime.now().month) if y == datetime.now().year else 12
             for m in range(month, 0, -1):
-                logger.info(f"Getting games from {y}-{m}")
+                logger.info(f"Downloading games from {y}-{m}")
                 games_list = chessdotcom.get_player_games_by_month_pgn(username, y, m)
                 games_list = self.split_pgns(games_list.json["pgn"]["pgn"])
                 for g in games_list:

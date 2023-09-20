@@ -82,7 +82,6 @@ class Game(SemiDataclass):
         )
 
     def _get_evaluations(self, stockfish: Stockfish | None) -> list:
-        board = self._board.copy()
         evaluations = []
         total, add_time = map(float, self.time_control.split("+"))
         white_time = black_time = total
@@ -244,7 +243,7 @@ if __name__ == "__main__":
     with open("tests/test_data/barabasz60_chess_com_0.pgn") as f:
         pgn = f.read()
     game = Game(pgn, "barabasz60", Stockfish("stockfish.exe", depth=4))
-    # from rich import inspect, print
+    from rich import inspect, print
 
     print(game.markdown_docs())
     print(game.player.markdown_docs())

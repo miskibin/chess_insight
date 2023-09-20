@@ -4,6 +4,7 @@ import berserk
 import dotenv
 from easy_logs import get_logger
 import os
+from rich.status import Status
 
 logger = get_logger()
 dotenv.load_dotenv()
@@ -15,9 +16,12 @@ class LichessApiCommunicator(ApiCommunicator):
     CLIENT = berserk.Client(session=SESSION)
 
     def get_pgns(self, username: str, count: int, time_class: str) -> list[str]:
+        stat = Status(f"Downloading {count} games from {self.HOST}")
+        stat.start()
         games = self.CLIENT.games.export_by_player(
             username, max=count, perf_type=time_class, as_pgn=True, clocks=True
         )
+        stat.stop()
         list_of_games = list(games)
         if len(list_of_games) < count:
             logger.warning(
