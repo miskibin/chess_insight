@@ -44,7 +44,7 @@ class ChessComApiCommunicator(ApiCommunicator):
 
 if __name__ == "__main__":
     lichess = ChessComApiCommunicator()
-    from  import print
+    from rich import print
     from pprint import pprint
     from pathlib import Path
 
