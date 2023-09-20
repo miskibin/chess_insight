@@ -27,8 +27,8 @@ from chess_insight import ChessComApiCommunicator, LichessApiCommunicator
 c1 = LichessApiCommunicator()
 c2 = ChessComApiCommunicator()
 
-games = c1.games_generator("your lichess username", 10, "blitz")
-games += c2.games_generator("your chess com username", 10, "blitz")
+games = list(c1.games_generator("your lichess username", 10, "blitz"))
+games += list(c2.games_generator("your chess com username", 10, "blitz"))
 ```
 
 - export games to csv
