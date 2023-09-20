@@ -4,3 +4,4 @@ chess
 berserk
 chess.com
 pandas
+rich
