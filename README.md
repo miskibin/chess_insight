@@ -1,3 +1,6 @@
+[![PyPI version](https://badge.fury.io/py/chess-insight.svg)](https://badge.fury.io/py/chess-insight)
+
+
 # Chess-insight
 
 __Modern package for analyzing chess games.__
