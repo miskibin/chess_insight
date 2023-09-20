@@ -11,7 +11,7 @@ with open(this_directory / "requirements.txt") as f:
     requirements = f.read().splitlines()
 
 with open(this_directory / "README.md") as f:
-    requirements = f.read().splitlines()
+    readme = f.read().splitlines()
 
 
 setuptools.setup(

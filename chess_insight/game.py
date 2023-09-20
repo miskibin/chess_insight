@@ -14,7 +14,6 @@ from stockfish import Stockfish
 from datetime import datetime
 from chess_insight.semi_dataclass import SemiDataclass
 from chess_insight.player import Player
-from rich import print
 from functools import cached_property
 from urllib.parse import urlparse
 import io
@@ -245,7 +244,7 @@ if __name__ == "__main__":
     with open("tests/test_data/barabasz60_chess_com_0.pgn") as f:
         pgn = f.read()
     game = Game(pgn, "barabasz60", Stockfish("stockfish.exe", depth=4))
-    from rich import inspect, print
+    # from rich import inspect, print
 
     print(game.markdown_docs())
     print(game.player.markdown_docs())
