@@ -6,7 +6,6 @@ __version__ = "0.6.1"
 __author__ = "Michał Skibiński"
 
 this_directory = Path(__file__).parent
-long_description = (this_directory / "readme.md").read_text()
 
 with open(this_directory / "requirements.txt") as f:
     requirements = f.read().splitlines()
@@ -23,8 +22,6 @@ setuptools.setup(
         """.replace(
         "\n", " "
     ).strip(),
-    long_description=long_description,
-    # rst
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
     license="GPL-3.0+",
