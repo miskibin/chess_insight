@@ -20,7 +20,7 @@ class ChessComApiCommunicator(ApiCommunicator):
         logger.debug(f"User {usr} joined in year: {year}")
         return year
 
-    def get_games(self, username: str, count: int, time_class: str) -> list[str]:
+    def get_pgns(self, username: str, count: int, time_class: str) -> list[str]:
         joined_year = self._get_joined_year(username)
         games = []
         for y in range(datetime.now().year, joined_year - 1, -1):
@@ -49,8 +49,7 @@ if __name__ == "__main__":
     from pathlib import Path
 
     tests_path = Path(__file__).parent.parent / "tests" / "test_data"
-    games = lichess.get_games("barabasz60", 5, "blitz")
-    games = lichess.games_generator("barabasz60", games)
+    games = lichess.games_generator("barabasz60", 5, "blitz")
     # for i, game in enumerate(games):
     #     with open(tests_path / f"barabasz60_chess_com_{i}.pgn", "w") as f:
     #         f.write(game)

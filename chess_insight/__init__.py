@@ -1,3 +1,6 @@
+from chess_insight.chess_com_api_communicator import ChessComApiCommunicator
+from chess_insight.lichess_api_communicator import LichessApiCommunicator
+from chess_insight.game import Game
 import pandas as pd
 from easy_logs import get_logger
 

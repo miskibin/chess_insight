@@ -48,7 +48,7 @@ class ApiCommunicator(ABC):
         return pgns
 
     def games_generator(
-        self, username: str, list_of_pgns: list[str]
+        self, username: str, count: int, time_class: str
     ) -> Generator[Game, None, None]:
         """
         Args:
@@ -57,6 +57,7 @@ class ApiCommunicator(ABC):
         returns:
             generator of Game objects, each representing a game played on chess.com
         """
+        list_of_pgns = self.get_pgns(username, count, time_class)
         logger.info(f"Collected {len(list_of_pgns)} games")
         for game in list_of_pgns:
             game = Game(
@@ -67,8 +68,8 @@ class ApiCommunicator(ABC):
             yield game
 
     @abstractmethod
-    def get_games(
-        self, username: str, games: int, time_class: str
+    def get_pgns(
+        self, username: str, number_of_games: int, time_class: str
     ) -> Generator[Game, None, None]:
         """
         Args:

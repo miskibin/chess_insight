@@ -69,7 +69,7 @@ class Game(SemiDataclass):
         self.player = Player(
             self._pgn,
             self._board,
-            self.color,
+            self.player_color,
             self.phases,
             evaluations=self._evaluations,
         )
@@ -77,7 +77,7 @@ class Game(SemiDataclass):
         self.opponent = Player(
             self._pgn,
             self._board,
-            not self.color,
+            not self.player_color,
             self.phases,
             evaluations=self._evaluations,
         )
@@ -135,7 +135,7 @@ class Game(SemiDataclass):
                 raise ValueError(f"Unknown host: {self.host}")
 
     @property
-    def color(self) -> Color:
+    def player_color(self) -> Color:
         """
         Player color in game.
         """

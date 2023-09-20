@@ -7,13 +7,35 @@ Modern package for analyzing chess games. It provides method to download games f
 ```bash
 pip install chess-insight
 ```
+
+## Usage
+
+- get games 
+
+```python
+from chess_insight import ChessComApiCommunicator, LichessApiCommunicator
+
+c1 = LichessApiCommunicator(depth=1)
+c2 = ChessComApiCommunicator(depth=1)
+
+games = c1.games_generator("your lichess username", 10, "blitz")
+games += c2.games_generator("your chess com username", 10, "blitz")
+```
+
+- export games to csv
+
+```python 
+chess_insight.export_games_to_csv(list(games))
+
+```
+
 ## Game
 
 | Attribute          | Description                                                                                       |
 | ------------------ | ------------------------------------------------------------------------------------------------- |
 | `host`             | Server where game was played.                                                                     |
 | `url`              | Url to game.                                                                                      |
-| `color`            | Player color in game.                                                                             |
+| `player_color`     | Player color in game.                                                                             |
 | `time_control`     | time control in format "time+increment" in seconds.         e.g. "600+0" or "180+2"               |
 | `date`             | Date and time of game in UTC.                                                                     |
 | `result`           | Returns tuple (result, reason)         eg:         (white, resign) -> white won by resignation    |
@@ -39,12 +61,12 @@ pip install chess-insight
 - example game:
 
 ```python
-game.as_dict()
+game.asdict()
 ```
 
 ```json
 {
-    "color": "white",
+    "player_color": "white",
     "date": datetime.datetime(2023, 9, 14, 21, 57, 47),
     "host": "chess.com",
     "opening": "Sicilian Defense: Closed, Traditional",
