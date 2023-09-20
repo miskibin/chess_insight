@@ -28,7 +28,8 @@ setuptools.setup(
     long_description=readme,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
-    package_data={"chess_insights": ["*.json"]},
+    # chess_insight/openings.json
+    package_data={"chess_insight": ["data/openings.json", "data/*"]},
     license="GPL-3.0+",
     keywords=" chess, statistic, game, board",
     url="https://github.com/michalskibinski109/chess-insight",
