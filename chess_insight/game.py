@@ -247,5 +247,7 @@ if __name__ == "__main__":
     game = Game(pgn, "barabasz60", Stockfish("stockfish.exe", depth=4))
     from rich import inspect, print
 
+    print(game.markdown_docs())
+    print(game.player.markdown_docs())
     # inspect(game, docs=True, help=True, title="Game")
-    print(game.flatten())
+    print(game.asdict())
