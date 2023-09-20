@@ -1,7 +1,7 @@
 # Chess-insight
 
 __Modern package for analyzing chess games.__
- I
+ 
 ### Features:
 1. Download games from `lichess.org` and `chess.com`
 2. Analyze games using set of custom methods and `stockfish-16` engine.
