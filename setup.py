@@ -25,10 +25,11 @@ setuptools.setup(
         """.replace(
         "\n", " "
     ).strip(),
+    long_description=readme,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
     license="GPL-3.0+",
-    # keywords=" draughts, checkers, AI mini-max, game, board",
+    keywords=" chess, statistic, game, board",
     url="https://github.com/michalskibinski109/chess-insight",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
