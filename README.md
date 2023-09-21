@@ -62,23 +62,23 @@ for game in games:
     "opening": "Sicilian Defense: Closed, Traditional",
     "opening_short": "Sicilian Defense",
     "opponent": {
-        "accuracy": {
+        "avg_move_time": {"opening": 1.2, "middle_game": 5.1906, "end_game": 3.9467},
+        "elo": 1603,
+        "evaluation": {
             "opening": {"inaccuracy": 1, "mistake": 1, "blunder": 1},
             "middle_game": {"inaccuracy": 13, "mistake": 13, "blunder": 15},
             "end_game": {"inaccuracy": 6, "mistake": 7, "blunder": 7}
-        },
-        "avg_move_time": {"opening": 1.2, "middle_game": 5.1906, "end_game": 3.9467},
-        "elo": 1603
+        }
     },
     "phases": {"opening": 4, "middle_game": 64, "end_game": 91},
     "player": {
-        "accuracy": {
+        "avg_move_time": {"opening": 1.65, "middle_game": 3.4875, "end_game": 3.0109},
+        "elo": 1619,
+        "evaluation": {
             "opening": {"inaccuracy": 0, "mistake": 0, "blunder": 0},
             "middle_game": {"inaccuracy": 1, "mistake": 1, "blunder": 1},
             "end_game": {"inaccuracy": 1, "mistake": 1, "blunder": 1}
-        },
-        "avg_move_time": {"opening": 1.65, "middle_game": 3.4875, "end_game": 3.0109},
-        "elo": 1619
+        }
     },
     "player_color": "white",
     "result": ["white", "timeout"],
@@ -118,7 +118,8 @@ for game in games:
 | --------------- | -------------------------------------------- |
 | `elo`           | elo of player at the time of game.           |
 | `avg_move_time` | list with average move time for each phase.  |
-| `accuracy`      | dict with number of mistakes for each phase. |
+| `evaluation`    | dict with number of mistakes for each phase. |
+
 
 
 - example game:

@@ -19,11 +19,11 @@ class SemiDataclass(ABC):
         """
 
         console = Console()
-        md = Markdown(self.markdown_docs())
+        md = Markdown(self.render_docs())
         console.print(md)
 
-    def markdown_docs(self) -> str:
-        docs_content = "## " + self.__class__.__name__ + "\n\n"
+    def render_docs(self) -> str:
+        docs_content = "### " + self.__class__.__name__ + " object\n\n"
         table_data = []
         for name, value in vars(self.__class__).items():
             if not name.startswith("_"):  # Exclude special attributes
