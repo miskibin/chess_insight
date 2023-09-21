@@ -52,7 +52,7 @@ class Player(SemiDataclass):
         return data
 
     @property
-    def accuracy(self) -> dict:
+    def evaluation(self) -> dict:
         """
         dict with number of mistakes for each phase.
         """
