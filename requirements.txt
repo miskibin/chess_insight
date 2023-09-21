@@ -1,3 +1,4 @@
+dotenv
 stockfish
 easy-logs
 chess
