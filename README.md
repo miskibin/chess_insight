@@ -131,6 +131,6 @@ for game in games:
 
 
 ## Example charts (Code can be found in [here](./example.ipynb))
-![image](https://github.com/michalskibinski109/chess-insight/assets/77834536/7d71adbb-b146-434c-b5f8-7388a79ab94b)
+![image](https://github.com/michalskibinski109/chess-insight/assets/77834536/ae2c6fb6-cbd9-4c23-b3e4-75ae37fe8bf3)
 
 
