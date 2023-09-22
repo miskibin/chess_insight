@@ -130,7 +130,8 @@ for game in games:
 
 
 
-## Example charts (Code can be found in [here](./example.ipynb))
-![image](https://github.com/michalskibinski109/chess-insight/assets/77834536/ae2c6fb6-cbd9-4c23-b3e4-75ae37fe8bf3)
+## Example charts (Code can be found in [here](./example.py))
+![image](https://github.com/michalskibinski109/chess-insight/assets/77834536/f6bb0e67-6a3b-448a-9cf7-186c434ebd9e)
+
 
 
