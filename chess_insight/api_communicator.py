@@ -17,7 +17,7 @@ logger = get_logger()
 class ApiCommunicator(ABC):
     HOST: str = None
 
-    def __init__(self, depth: int = 10) -> None:
+    def __init__(self, stockfish_path: Path = "stockfish.exe", depth: int = 10) -> None:
         """
         Summary:
             Abstract class for API communication. It is used to get games from chess.com, lichess, etc.

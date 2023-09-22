@@ -17,6 +17,10 @@ __Modern package for analyzing chess games.__
 pip install chess-insight
 ```
 
+## Install stockfish engine(Optional)
+
+- Download stockfish-16 from [here](https://stockfishchess.org/download/)
+- 
 ## Usage
 
 - get games 

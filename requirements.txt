@@ -1,4 +1,3 @@
-python-dotenv
 stockfish
 easy-logs
 chess
