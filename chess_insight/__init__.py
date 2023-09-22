@@ -7,12 +7,13 @@ from easy_logs import get_logger
 logger = get_logger()
 
 
-def export_games_to_csv(games: list, file_name: str = "games.csv"):
+def export_games_to_csv(games: list, file_name: str = "games.csv") -> pd.DataFrame:
     logger.debug(f"Saving {len(games)} games to {file_name}")
     json_data = [game.flatten() for game in games]
     df = pd.DataFrame(json_data)
     df.to_csv(file_name, index=False)
     logger.info(f"Saved {len(games)} games to {file_name}")
+    return df
 
 
 def export_games_to_json(games: list, file_name: str = "games.json"):

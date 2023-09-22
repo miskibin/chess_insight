@@ -2,6 +2,7 @@ from typing import Literal
 from rich.console import Console
 from rich.table import Table
 from rich.markdown import Markdown
+from chess_insight.api_communicator import ApiCommunicator
 from chess_insight import (
     ChessComApiCommunicator,
     LichessApiCommunicator,
@@ -20,6 +21,9 @@ class HostSpecific(BaseModel):
     games_to_download: NonNegativeInt = Field(
         help="Provide number of games to download ", default=10
     )
+
+    def __hash__(self):  # make hashable BaseModel subclass
+        return hash((type(self),) + tuple(self.__dict__.values()))
 
     class Config:
         # This is what you need!
@@ -81,30 +85,31 @@ def main():
     console.print("lichess.org specific:")
     lichess: HostSpecific = input_model_data(console, HostSpecific())
     console.print("chess.com specific:")
-    chess: HostSpecific = input_model_data(console, HostSpecific())
-    console.print(general, lichess, chess)
+    chess_com: HostSpecific = input_model_data(console, HostSpecific())
+    console.print(general, lichess, chess_com)
+    HOSTS = {
+        chess_com: ChessComApiCommunicator(depth=general.engine_depth),
+        lichess: LichessApiCommunicator(depth=general.engine_depth),
+    }
     console.print("Downloading games...")
-    if lichess:
-        games = list(
-            LichessApiCommunicator(general.engine_depth).games_generator(
-                lichess.username,
-                lichess.games_to_download,
-                general.time_control,
-            )
-        )
-    if chess:
+    games = []
+    for config, communicator in HOSTS.items():
+        if not config:
+            continue
         games += list(
-            ChessComApiCommunicator(general.engine_depth).games_generator(
-                chess.username,
-                chess.games_to_download,
+            communicator.games_generator(
+                config.username,
+                config.games_to_download,
                 general.time_control,
             )
         )
     console.print("Games downloaded!")
     if general.file_format == "csv":
-        export_games_to_csv(games, f"{general.file_name}.csv")
+        df = export_games_to_csv(games, f"{general.file_name}.csv")
     else:
         export_games_to_json(games, f"{general.file_name}.json")
+    # print table
+    console.print(df.head())
 
 
 if __name__ == "__main__":
