@@ -18,8 +18,15 @@ class LichessApiCommunicator(ApiCommunicator):
         games = self.CLIENT.games.export_by_player(
             username, max=count, perf_type=time_class, as_pgn=True, clocks=True
         )
+
         stat.stop()
-        list_of_games = list(games)
+        try:
+            list_of_games = list(games)
+        except berserk.exceptions.ResponseError as err:
+            logger.error(f"Failed to get games from {self.HOST}: {err}")
+            if err.status_code == 404:
+                logger.error(f"User {username} doesn't exist on {self.HOST}.")
+            raise err
         if len(list_of_games) < count:
             logger.warning(
                 f"User {username} played only {len(list_of_games)} games on {self.HOST}."
@@ -33,9 +40,9 @@ if __name__ == "__main__":
     from pathlib import Path
 
     tests_path = Path(__file__).parent.parent / "tests" / "test_data"
-    games = lichess.games_generator("pro100wdupe", 5, "rapid")
+    games = lichess.games_generator("pro100wdupe", 20, "blitz")
     for game in games:
-        print(game.asdict())
+        game.asdict()
     # for i, game in enumerate(games):
     #     with open(tests_path / f"pro100wdupe_lichess_{i}.pgn", "w") as f:
     #         f.write(game)

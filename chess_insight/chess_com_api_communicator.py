@@ -1,5 +1,6 @@
 from chess_insight.api_communicator import ApiCommunicator
 import chessdotcom
+from chessdotcom.types import ChessDotComError
 from easy_logs import get_logger
 from datetime import datetime
 from chess_insight.utils import get_time_class, get_pgn
@@ -14,7 +15,11 @@ class ChessComApiCommunicator(ApiCommunicator):
         if not usr:
             logger.error("No username provided")
             return []
-        user = chessdotcom.get_player_profile(usr).json
+        try:
+            user = chessdotcom.get_player_profile(usr).json
+        except ChessDotComError as err:
+            logger.error(f"Failed to get user {usr} from {self.HOST}: {err.text}")
+            raise err
         joined = user["player"]["joined"]
         year = datetime.fromtimestamp(joined).year
         logger.debug(f"User {usr} joined in year: {year}")
@@ -49,7 +54,8 @@ if __name__ == "__main__":
     from pathlib import Path
 
     tests_path = Path(__file__).parent.parent / "tests" / "test_data"
-    games = lichess.games_generator("barabasz60", 5, "blitz")
+    games = lichess.games_generator("barabasdsadasz60", 5, "blitz")
+    list_of_games = list(games)
     # for i, game in enumerate(games):
     #     with open(tests_path / f"barabasz60_chess_com_{i}.pgn", "w") as f:
     #         f.write(game)

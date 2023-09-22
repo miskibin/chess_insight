@@ -175,17 +175,21 @@ class Game(SemiDataclass):
         """
         res = Result(self._pgn.headers["Result"])
         comment = self._pgn.end().comment.lower()
-        if not comment:
+        if not comment or comment.startswith("[%clk") and comment.endswith("]"):
             comment = self._pgn.headers.get("Termination").lower()
         reason = None
         if "resigns" in comment or "abandoned" in comment:
             reason = ResultReason.RESIGN
-        elif "wins on time" or "won on time" in comment:
+        elif (
+            "wins on time" in comment
+            or "won on time" in comment
+            or "time forfeit" in comment
+        ):
             reason = ResultReason.TIMEOUT
         elif "checkmate" in comment:
             reason = ResultReason.MATE
         else:
-            logger.warning(f"Unknown result reason: {comment}")
+            logger.debug(f"Unknown result reason: {comment}")
         return (res, reason)
 
     def _set_opening(self) -> tuple[str | None, int]:
