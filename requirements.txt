@@ -5,3 +5,4 @@ berserk
 chess.com
 pandas
 rich
+textual
