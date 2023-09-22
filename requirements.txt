@@ -6,3 +6,4 @@ chess.com
 pandas
 rich
 textual
+pydantic==2.3.0
