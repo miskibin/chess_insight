@@ -1,22 +1,18 @@
 from typing import Literal
 from rich.console import Console
-from rich.table import Table
 from rich.markdown import Markdown
-from chess_insight.api_communicator import ApiCommunicator
 from chess_insight import (
     ChessComApiCommunicator,
     LichessApiCommunicator,
     export_games_to_csv,
     export_games_to_json,
 )
-from textual.app import App
 from pydantic import BaseModel, Field, NonNegativeInt, ValidationError
 
 
 class HostSpecific(BaseModel):
     username: str = Field(
         help="Provide username (leave blank to skip)",
-        default="pro100wdupe",
     )
     games_to_download: NonNegativeInt = Field(
         help="Provide number of games to download ", default=10
@@ -26,7 +22,6 @@ class HostSpecific(BaseModel):
         return hash((type(self),) + tuple(self.__dict__.values()))
 
     class Config:
-        # This is what you need!
         validate_assignment = True
 
 
@@ -44,7 +39,6 @@ class GenericQueries(BaseModel):
     )
 
     class Config:
-        # This is what you need!
         validate_assignment = True
 
 
@@ -62,7 +56,7 @@ WELCOME_MESSAGE = f"""
 def input_model_data(console, model: BaseModel) -> BaseModel:
     for name, query in model.model_json_schema()["properties"].items():
         while True:
-            answer = console.input(f"{query['help']} default [{query['default']}]: ")
+            answer = console.input(f"{query['help']} default `{query['default']}`: ")
             if name == "username" and answer == "":
                 return None
             if answer == "":
@@ -106,10 +100,12 @@ def main():
     console.print("Games downloaded!")
     if general.file_format == "csv":
         df = export_games_to_csv(games, f"{general.file_name}.csv")
+        console.print("Games exported to {general.file_name}.csv!")
+        console.print(df.head())
     else:
         export_games_to_json(games, f"{general.file_name}.json")
-    # print table
-    console.print(df.head())
+        console.print("Games exported to {general.file_name}.json!")
+        console.print(games[0].asdict())
 
 
 if __name__ == "__main__":

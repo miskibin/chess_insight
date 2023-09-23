@@ -18,7 +18,7 @@ def export_games_to_csv(games: list, file_name: str = "games.csv") -> pd.DataFra
 
 def export_games_to_json(games: list, file_name: str = "games.json"):
     logger.info(f"Saving {len(games)} games to {file_name}")
-    json_data = [game.as_dict() for game in games]
+    json_data = [game.asdict() for game in games]
     df = pd.DataFrame(json_data)
     df.to_json(file_name, index=False)
     logger.info(f"Saved {len(games)} games to {file_name}")
