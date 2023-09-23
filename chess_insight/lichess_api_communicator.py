@@ -3,7 +3,6 @@ from typing import Generator
 import berserk
 from easy_logs import get_logger
 import os
-from rich.status import Status
 
 logger = get_logger()
 
@@ -13,13 +12,10 @@ class LichessApiCommunicator(ApiCommunicator):
     CLIENT = berserk.Client()
 
     def get_pgns(self, username: str, count: int, time_class: str) -> list[str]:
-        stat = Status(f"Downloading {count} games from {self.HOST}")
-        stat.start()
         games = self.CLIENT.games.export_by_player(
             username, max=count, perf_type=time_class, as_pgn=True, clocks=True
         )
 
-        stat.stop()
         try:
             list_of_games = list(games)
         except berserk.exceptions.ResponseError as err:

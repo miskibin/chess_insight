@@ -10,6 +10,7 @@ from stockfish import Stockfish
 from easy_logs import get_logger
 from chess_insight.game import Game
 from rich.progress import track
+from rich.status import Status
 
 logger = get_logger()
 
@@ -58,7 +59,10 @@ class ApiCommunicator(ABC):
         returns:
             generator of Game objects, each representing a game played on chess.com
         """
+        status = Status(f"Collecting {count} pgns from {self.HOST}")
+        status.start()
         list_of_pgns = self.get_pgns(username, count, time_class)
+        status.stop()
         logger.info(f"Collected {len(list_of_pgns)} games")
         progress = track(
             list_of_pgns,
