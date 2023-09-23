@@ -18,4 +18,4 @@ jobs:
           spec: "chess_insight/main.py"
           requirements: "requirements.txt"
           upload_exe_with_name: "chess_insight"
-          options: --onefile, --name "Chess-insight-app", --windowed,--add-data "chess_insight/data/openings.json"
+          options: --onefile, --name "Chess-insight-app", --windowed,--add-data "chess_insight/data/openings.json:data/openings.json"
