@@ -3,9 +3,7 @@
 
 # chess_insight
 
-__Modern package for analyzing chess games.__
-
-![test (2)](https://github.com/michalskibinski109/chess_insight/assets/77834536/618f586e-d9fd-46d4-87e0-93f5b877cec1)
+__Modern application for gathering chess data and analyzing chess games.__
 
  
 ### Features:
@@ -14,16 +12,35 @@ __Modern package for analyzing chess games.__
 3. Parses games to `Game` object which contains all information about game and players to python object and `json`.
 4. Provides method for exporting list of analyzed games to `csv`
 
-## Installation
+## interactive mode
+
+![interactive](https://github.com/michalskibinski109/chess_insight/assets/77834536/618f586e-d9fd-46d4-87e0-93f5b877cec1)
+
+
+### installation
+1.  ```bash
+    pip install chess_insight # download application
+    ```
+2. [Optional] Download stockfish-16 from [here](https://stockfishchess.org/download/)
+
+
+3.  ```bash
+    python -m chess_insight # run app
+    ```
+Now answer questions and have fun with [csv](#csv) or [json](#json) data
+
+
+
+## Python module
 
 ```bash
 pip install chess_insight
 ```
+ [Optional] Download stockfish-16 from [here](https://stockfishchess.org/download/)
 
-## Install stockfish engine(Optional)
 
-- Download stockfish-16 from [here](https://stockfishchess.org/download/)
-- 
+
+
 ## Usage
 
 - get games 
@@ -31,8 +48,9 @@ pip install chess_insight
 ```python
 from chess_insight import ChessComApiCommunicator, LichessApiCommunicator
 
-c1 = LichessApiCommunicator()
-c2 = ChessComApiCommunicator()
+c1 = LichessApiCommunicator("path/to/stockfish")
+c2 = ChessComApiCommunicator("path/to/stockfish" # if blank stocfish wont be used
+)
 
 games = list(c1.games_generator("your lichess username", 10, "blitz"))
 games += list(c2.games_generator("your chess com username", 10, "blitz"))
@@ -44,7 +62,7 @@ games += list(c2.games_generator("your chess com username", 10, "blitz"))
 chess_insight.export_games_to_csv(list(games))
 ```
  
-
+#### CSV 
 
 | date                | host        | opening                               | opening_short    | opponent_accuracy_opening_inaccuracy | opponent_accuracy_opening_mistake | opponent_accuracy_opening_blunder | opponent_accuracy_middle_game_inaccuracy | opponent_accuracy_middle_game_mistake | opponent_accuracy_middle_game_blunder | opponent_accuracy_end_game_inaccuracy | opponent_accuracy_end_game_mistake | opponent_accuracy_end_game_blunder | opponent_avg_move_time_opening | opponent_avg_move_time_middle_game | opponent_avg_move_time_end_game | opponent_elo | phases_opening | phases_middle_game | phases_end_game | player_accuracy_opening_inaccuracy | player_accuracy_opening_mistake | player_accuracy_opening_blunder | player_accuracy_middle_game_inaccuracy | player_accuracy_middle_game_mistake | player_accuracy_middle_game_blunder | player_accuracy_end_game_inaccuracy | player_accuracy_end_game_mistake | player_accuracy_end_game_blunder | player_avg_move_time_opening | player_avg_move_time_middle_game | player_avg_move_time_end_game | player_elo | player_color | result               | time_class | time_control | url                          | username    |
 | ------------------- | ----------- | ------------------------------------- | ---------------- | ------------------------------------ | --------------------------------- | --------------------------------- | ---------------------------------------- | ------------------------------------- | ------------------------------------- | ------------------------------------- | ---------------------------------- | ---------------------------------- | ------------------------------ | ---------------------------------- | ------------------------------- | ------------ | -------------- | ------------------ | --------------- | ---------------------------------- | ------------------------------- | ------------------------------- | -------------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | -------------------------------- | -------------------------------- | ---------------------------- | -------------------------------- | ----------------------------- | ---------- | ------------ | -------------------- | ---------- | ------------ | ---------------------------- | ----------- |
@@ -61,6 +79,7 @@ for game in games:
     print(game.asdict())
 ```
 
+#### json
 
 ```json
 {
