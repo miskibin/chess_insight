@@ -5,7 +5,7 @@
 
 __Modern package for analyzing chess games.__
 
-![test (1)](https://github.com/michalskibinski109/chess-insight/assets/77834536/39ea76d4-5b93-4566-9eda-d8956c8dfb42)
+![test (2)](https://github.com/michalskibinski109/chess-insight/assets/77834536/618f586e-d9fd-46d4-87e0-93f5b877cec1)
 
  
 ### Features:
