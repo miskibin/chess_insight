@@ -2,7 +2,7 @@ from pathlib import Path
 
 import setuptools
 
-__version__ = "0.9.9"
+__version__ = "0.0.1"
 __author__ = "Michał Skibiński"
 
 this_directory = Path(__file__).parent
