@@ -27,13 +27,17 @@ class ApiCommunicator(ABC):
             logger (Logger): logger to log to
             depth (int, optional): depth of stockfish engine. Defaults to 10.
         """
-        try:
-            self.stockfish = Stockfish("stockfish.exe", depth=depth)
-        except (AttributeError, FileNotFoundError) as err:
-            logger.error(
-                f"Failed to load stockfish engine: Do you have it installed?  {err}"
+        stockfish_path = Path(stockfish_path).resolve()
+        if not stockfish_path.exists():
+            logger.warning(
+                f"Stockfish does not exists in given path {stockfish_path}. Therefore won't be used."
             )
             self.stockfish = None
+            return
+        try:
+            self.stockfish = Stockfish(stockfish_path.resolve(), depth=depth)
+        except (AttributeError, FileNotFoundError) as err:
+            raise err
 
     def split_pgns(self, text_pgn: str) -> list[str]:
         """

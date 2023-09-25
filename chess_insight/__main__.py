@@ -8,10 +8,14 @@ from chess_insight import (
     export_games_to_json,
 )
 from pydantic import BaseModel, Field, NonNegativeInt, ValidationError
+from pathlib import Path
+
+STOCKFISH_PATH = Path(__file__).parent.parent / "stockfish.exe"
 
 
 class HostSpecific(BaseModel):
     username: str = Field(
+        None,
         help="Provide username (leave blank to skip)",
     )
     games_to_download: NonNegativeInt = Field(
@@ -74,16 +78,16 @@ def main():
     console = Console()
     md = Markdown(WELCOME_MESSAGE)
     console.print(md)
-    console.print("General questions:")
+    console.print("General questions:", style="bold green ", justify="center")
     general: GenericQueries = input_model_data(console, GenericQueries())
-    console.print("lichess.org specific:")
+    console.print("lichess.org specific:", style="bold blue", justify="center")
     lichess: HostSpecific = input_model_data(console, HostSpecific())
-    console.print("chess.com specific:")
+    console.print("chess.com specific:", style="bold blue", justify="center")
     chess_com: HostSpecific = input_model_data(console, HostSpecific())
     console.print(general, lichess, chess_com)
     HOSTS = {
-        chess_com: ChessComApiCommunicator(depth=general.engine_depth),
-        lichess: LichessApiCommunicator(depth=general.engine_depth),
+        chess_com: ChessComApiCommunicator(STOCKFISH_PATH, depth=general.engine_depth),
+        lichess: LichessApiCommunicator(STOCKFISH_PATH, depth=general.engine_depth),
     }
     console.print("Downloading games...")
     games = []
