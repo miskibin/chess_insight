@@ -15,7 +15,7 @@ with open(this_directory / "README.md") as f:
 
 
 setuptools.setup(
-    name="chess-insight",
+    name="chess_insight",
     install_requires=requirements,
     version=__version__,
     author=__author__,
@@ -32,7 +32,7 @@ setuptools.setup(
     package_data={"chess_insight": ["data/openings.json", "data/*"]},
     license="GPL-3.0+",
     keywords=" chess, statistic, game, board",
-    url="https://github.com/michalskibinski109/chess-insight",
+    url="https://github.com/michalskibinski109/chess_insight",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",

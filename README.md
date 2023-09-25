@@ -1,11 +1,11 @@
-[![PyPI version](https://badge.fury.io/py/chess-insight.svg)](https://badge.fury.io/py/chess-insight)
+[![PyPI version](https://badge.fury.io/py/chess_insight.svg)](https://badge.fury.io/py/chess_insight)
 
 
-# Chess-insight
+# chess_insight
 
 __Modern package for analyzing chess games.__
 
-![test (2)](https://github.com/michalskibinski109/chess-insight/assets/77834536/618f586e-d9fd-46d4-87e0-93f5b877cec1)
+![test (2)](https://github.com/michalskibinski109/chess_insight/assets/77834536/618f586e-d9fd-46d4-87e0-93f5b877cec1)
 
  
 ### Features:
@@ -17,7 +17,7 @@ __Modern package for analyzing chess games.__
 ## Installation
 
 ```bash
-pip install chess-insight
+pip install chess_insight
 ```
 
 ## Install stockfish engine(Optional)
@@ -134,7 +134,7 @@ for game in games:
 
 
 ## Example charts (Code can be found in [here](./example.py))
-![image](https://github.com/michalskibinski109/chess-insight/assets/77834536/f6bb0e67-6a3b-448a-9cf7-186c434ebd9e)
+![image](https://github.com/michalskibinski109/chess_insight/assets/77834536/f6bb0e67-6a3b-448a-9cf7-186c434ebd9e)
 
 
 

@@ -47,10 +47,10 @@ class GenericQueries(BaseModel):
 
 
 WELCOME_MESSAGE = f"""
-# **Welcome to chess-insight interactive mode!**
+# **Welcome to chess_insight interactive mode!**
 
-### Github page: `https://github.com/michalskibinski109/chess-insight`
-### PyPI page: `https://pypi.org/project/chess-insight/`
+### Github page: `https://github.com/michalskibinski109/chess_insight`
+### PyPI page: `https://pypi.org/project/chess_insight/`
 ### Author: `michalskibinski109@gmail.com`
 
 # *Have fun!*

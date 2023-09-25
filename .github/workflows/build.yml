@@ -18,6 +18,6 @@ jobs:
           spec: "chess_insight/__main__.py"
           requirements: "requirements.txt"
           upload_exe_with_name: "chess_insight.exe"
-          options: --onefile, --name "chess-insight", --add-data
+          options: --onefile, --name "chess_insight", --add-data
             "chess_insight/data/openings.json;chess_insight/data/openings.json",--add-data ""
             "data/openings.json;data/openings.json"
