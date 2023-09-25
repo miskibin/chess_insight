@@ -4,6 +4,9 @@
 # Chess-insight
 
 __Modern package for analyzing chess games.__
+
+![test (2)](https://github.com/michalskibinski109/chess-insight/assets/77834536/618f586e-d9fd-46d4-87e0-93f5b877cec1)
+
  
 ### Features:
 1. Download games from `lichess.org` and `chess.com`
