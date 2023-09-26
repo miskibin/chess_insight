@@ -13,8 +13,7 @@ __Modern application for gathering chess data and analyzing chess games.__
 4. Provides method for exporting list of analyzed games to `csv`
 
 ## interactive mode
-
-![interactive](https://github.com/michalskibinski109/chess_insight/assets/77834536/618f586e-d9fd-46d4-87e0-93f5b877cec1)
+![image](https://github.com/michalskibinski109/chess_insight/assets/77834536/6bb89db2-ae38-423f-991f-eb696377b38a)
 
 
 ### installation
