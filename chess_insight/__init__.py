@@ -3,8 +3,17 @@ from chess_insight.lichess_api_communicator import LichessApiCommunicator
 from chess_insight.game import Game
 import pandas as pd
 from easy_logs import get_logger
+from pathlib import Path
 
 logger = get_logger()
+
+
+def get_communicator(host: str, engine_depth: int = None, engine_path: Path = None):
+    HOSTS = {
+        "chess.com": ChessComApiCommunicator(engine_path, depth=engine_depth),
+        "lichess.org": LichessApiCommunicator(engine_path, depth=engine_depth),
+    }
+    return HOSTS[host]
 
 
 def export_games_to_csv(games: list, file_name: str = "games.csv") -> pd.DataFrame:
