@@ -14,7 +14,7 @@ __Modern application for gathering chess data and analyzing chess games.__
 
 ## interactive mode
 
-![interactive](https://github.com/michalskibinski109/chess_insight/assets/77834536/618f586e-d9fd-46d4-87e0-93f5b877cec1)
+![test](https://github.com/michalskibinski109/chess_insight/assets/77834536/4fdc678e-7b0a-4f89-ac03-f1892e62d1a1)
 
 
 ### installation
