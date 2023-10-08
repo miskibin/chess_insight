@@ -167,13 +167,10 @@ class Game(SemiDataclass):
         return date_time
 
     @property
-    def result(self) -> Result:
+    def end_reason(self) -> str:
         """
-        Returns tuple (result, reason)
-        eg:
-        (white, resign) -> white won by resignation
+        Reason of game end.
         """
-        res = Result(self._pgn.headers["Result"])
         comment = self._pgn.end().comment.lower()
         if not comment or comment.startswith("[%clk") and comment.endswith("]"):
             comment = self._pgn.headers.get("Termination").lower()
@@ -190,7 +187,16 @@ class Game(SemiDataclass):
             reason = ResultReason.MATE
         else:
             logger.debug(f"Unknown result reason: {comment}")
-        return (res, reason)
+        return reason
+
+    @property
+    def result(self) -> Result:
+        """
+        Result of game. Black, White or Draw.
+        """
+        res = Result(self._pgn.headers["Result"])
+
+        return res
 
     def _set_opening(self) -> tuple[str | None, int]:
         """
