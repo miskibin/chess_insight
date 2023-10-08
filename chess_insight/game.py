@@ -174,20 +174,19 @@ class Game(SemiDataclass):
         comment = self._pgn.end().comment.lower()
         if not comment or comment.startswith("[%clk") and comment.endswith("]"):
             comment = self._pgn.headers.get("Termination").lower()
-        reason = None
         if "resigns" in comment or "abandoned" in comment:
-            reason = ResultReason.RESIGN
+            return ResultReason.RESIGN
         elif (
             "wins on time" in comment
             or "won on time" in comment
             or "time forfeit" in comment
         ):
-            reason = ResultReason.TIMEOUT
+            return ResultReason.TIMEOUT
         elif "checkmate" in comment:
-            reason = ResultReason.MATE
+            return ResultReason.MATE
         else:
-            logger.debug(f"Unknown result reason: {comment}")
-        return reason
+            logger.warning(f"Unknown result reason: {comment}")
+        return "unknown"
 
     @property
     def result(self) -> Result:
