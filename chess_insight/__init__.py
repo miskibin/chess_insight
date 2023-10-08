@@ -1,5 +1,6 @@
 from chess_insight.chess_com_api_communicator import ChessComApiCommunicator
 from chess_insight.lichess_api_communicator import LichessApiCommunicator
+from chess_insight.api_communicator import ApiCommunicator
 from chess_insight.game import Game
 import pandas as pd
 from easy_logs import get_logger
@@ -8,7 +9,9 @@ from pathlib import Path
 logger = get_logger()
 
 
-def get_communicator(host: str, engine_depth: int = None, engine_path: Path = None):
+def get_communicator(
+    host: str, engine_depth: int = None, engine_path: Path = None
+) -> ApiCommunicator:
     HOSTS = {
         "chess.com": ChessComApiCommunicator(engine_path, depth=engine_depth),
         "lichess.org": LichessApiCommunicator(engine_path, depth=engine_depth),
