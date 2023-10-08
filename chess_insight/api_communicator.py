@@ -63,14 +63,14 @@ class ApiCommunicator(ABC):
         returns:
             generator of Game objects, each representing a game played on chess.com
         """
-        status = Status(f"Collecting {count} pgns from {self.HOST}")
+        status = Status(f"Collecting {count} pgns from {self.HOST}\n")
         status.start()
         list_of_pgns = self.get_pgns(username, count, time_class)
         status.stop()
         logger.info(f"Collected {len(list_of_pgns)} games")
         progress = track(
             list_of_pgns,
-            description=f"Analyzing games for {username}",
+            description=f"Analyzing games for {username}\n",
             total=len(list_of_pgns),
             transient=True,
         )

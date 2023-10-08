@@ -54,7 +54,7 @@ if __name__ == "__main__":
     from pathlib import Path
 
     tests_path = Path(__file__).parent.parent / "tests" / "test_data"
-    games = lichess.games_generator("barabasdsadasz60", 5, "blitz")
+    games = lichess.games_generator("barabasz60", 5, "blitz")
     list_of_games = list(games)
     # for i, game in enumerate(games):
     #     with open(tests_path / f"barabasz60_chess_com_{i}.pgn", "w") as f:
