@@ -27,14 +27,14 @@ class ApiCommunicator(ABC):
             logger (Logger): logger to log to
             depth (int, optional): depth of stockfish engine. Defaults to 10.
         """
-        stockfish_path = Path(stockfish_path).resolve()
-        if not stockfish_path.exists():
+        if not stockfish_path or not Path(stockfish_path).exists():
             logger.warning(
                 f"Stockfish does not exists in given path {stockfish_path}. Therefore won't be used."
             )
             self.stockfish = None
             return
         try:
+            stockfish_path = Path(stockfish_path).resolve()
             self.stockfish = Stockfish(stockfish_path.resolve(), depth=depth)
         except (AttributeError, FileNotFoundError) as err:
             raise err
