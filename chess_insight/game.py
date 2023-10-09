@@ -174,7 +174,11 @@ class Game(SemiDataclass):
         comment = self._pgn.end().comment.lower()
         if not comment or comment.startswith("[%clk") and comment.endswith("]"):
             comment = self._pgn.headers.get("Termination").lower()
-        if "resigns" in comment or "abandoned" in comment:
+        if "repetition" in comment:
+            return ResultReason.REPETITION
+        if "insufficient" in comment:
+            return ResultReason.INSSUFICIENT_MATERIAL
+        if "resigns" in comment or "resignation" in comment or "abandoned" in comment:
             return ResultReason.RESIGN
         elif (
             "wins on time" in comment
