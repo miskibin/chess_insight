@@ -177,7 +177,7 @@ class Game(SemiDataclass):
         if "repetition" in comment:
             return ResultReason.REPETITION
         if "insufficient" in comment:
-            return ResultReason.INSSUFICIENT_MATERIAL
+            return ResultReason.INSUFFICIENT_MATERIAL
         if "resigns" in comment or "resignation" in comment or "abandoned" in comment:
             return ResultReason.RESIGN
         elif (

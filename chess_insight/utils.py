@@ -26,7 +26,7 @@ class Mistakes(IntEnum):
 
 
 class ResultReason(IntEnum):
-    INSSUFICIENT_MATERIAL = 4
+    INSUFFICIENT_MATERIAL = 4
     REPETITION = 3
     RESIGN = 2
     TIMEOUT = 1
