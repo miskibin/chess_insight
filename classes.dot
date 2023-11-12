@@ -1,0 +1,16 @@
+digraph "classes" {
+rankdir=BT
+charset="utf-8"
+"api_communicator.ApiCommunicator" [color="black", fontcolor="black", label=<{ApiCommunicator|HOST : Optional[str]<br ALIGN="LEFT"/>stockfish : NoneType, Stockfish<br ALIGN="LEFT"/>|games_generator(username: str, count: int, time_class: str): Generator[Game, None, None]<br ALIGN="LEFT"/><I>get_pgns</I>(username: str, number_of_games: int, time_class: str): Generator[Game, None, None]<br ALIGN="LEFT"/>split_pgns(text_pgn: str): list[str]<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"chess_com_api_communicator.ChessComApiCommunicator" [color="black", fontcolor="black", label=<{ChessComApiCommunicator|HOST : str<br ALIGN="LEFT"/>|get_pgns(username: str, count: int, time_class: str): list[str]<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"game.Game" [color="black", fontcolor="black", label=<{Game|date<br ALIGN="LEFT"/>end_reason<br ALIGN="LEFT"/>host : Annotated[str, 'Server where game was played.']<br ALIGN="LEFT"/>opening : str<br ALIGN="LEFT"/>opening_short<br ALIGN="LEFT"/>phases<br ALIGN="LEFT"/>player<br ALIGN="LEFT"/>player_color<br ALIGN="LEFT"/>result<br ALIGN="LEFT"/>time_class : str<br ALIGN="LEFT"/>time_control<br ALIGN="LEFT"/>url : Annotated[str, 'Url to game.']<br ALIGN="LEFT"/>username : str<br ALIGN="LEFT"/>|}>, shape="record", style="solid"];
+"lichess_api_communicator.LichessApiCommunicator" [color="black", fontcolor="black", label=<{LichessApiCommunicator|CLIENT : Client<br ALIGN="LEFT"/>HOST : str<br ALIGN="LEFT"/>|get_pgns(username: str, count: int, time_class: str): list[str]<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"player.Player" [color="black", fontcolor="black", label=<{Player|avg_move_time<br ALIGN="LEFT"/>elo<br ALIGN="LEFT"/>evaluation<br ALIGN="LEFT"/>|}>, shape="record", style="solid"];
+"semi_dataclass.SemiDataclass" [color="black", fontcolor="black", label=<{SemiDataclass|<br ALIGN="LEFT"/>|asdict(): dict<br ALIGN="LEFT"/>flatten(): dict<br ALIGN="LEFT"/>print_md(): None<br ALIGN="LEFT"/>render_docs(): str<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"chess_com_api_communicator.ChessComApiCommunicator" -> "api_communicator.ApiCommunicator" [arrowhead="empty", arrowtail="none"];
+"game.Game" -> "semi_dataclass.SemiDataclass" [arrowhead="empty", arrowtail="none"];
+"lichess_api_communicator.LichessApiCommunicator" -> "api_communicator.ApiCommunicator" [arrowhead="empty", arrowtail="none"];
+"player.Player" -> "semi_dataclass.SemiDataclass" [arrowhead="empty", arrowtail="none"];
+"player.Player" -> "game.Game" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="player", style="solid"];
+"player.Player" -> "game.Game" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="opponent", style="solid"];
+}

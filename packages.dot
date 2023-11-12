@@ -1,0 +1,27 @@
+digraph "packages" {
+rankdir=BT
+charset="utf-8"
+"chess_insight" [color="black", label=<chess_insight>, shape="box", style="solid"];
+"chess_insight.__main__" [color="black", label=<chess_insight.__main__>, shape="box", style="solid"];
+"chess_insight.api_communicator" [color="black", label=<chess_insight.api_communicator>, shape="box", style="solid"];
+"chess_insight.chess_com_api_communicator" [color="black", label=<chess_insight.chess_com_api_communicator>, shape="box", style="solid"];
+"chess_insight.game" [color="black", label=<chess_insight.game>, shape="box", style="solid"];
+"chess_insight.lichess_api_communicator" [color="black", label=<chess_insight.lichess_api_communicator>, shape="box", style="solid"];
+"chess_insight.player" [color="black", label=<chess_insight.player>, shape="box", style="solid"];
+"chess_insight.semi_dataclass" [color="black", label=<chess_insight.semi_dataclass>, shape="box", style="solid"];
+"chess_insight.utils" [color="black", label=<chess_insight.utils>, shape="box", style="solid"];
+"chess_insight" -> "chess_insight.api_communicator" [arrowhead="open", arrowtail="none"];
+"chess_insight" -> "chess_insight.chess_com_api_communicator" [arrowhead="open", arrowtail="none"];
+"chess_insight" -> "chess_insight.game" [arrowhead="open", arrowtail="none"];
+"chess_insight" -> "chess_insight.lichess_api_communicator" [arrowhead="open", arrowtail="none"];
+"chess_insight.__main__" -> "chess_insight" [arrowhead="open", arrowtail="none"];
+"chess_insight.api_communicator" -> "chess_insight.game" [arrowhead="open", arrowtail="none"];
+"chess_insight.chess_com_api_communicator" -> "chess_insight.api_communicator" [arrowhead="open", arrowtail="none"];
+"chess_insight.chess_com_api_communicator" -> "chess_insight.utils" [arrowhead="open", arrowtail="none"];
+"chess_insight.game" -> "chess_insight.player" [arrowhead="open", arrowtail="none"];
+"chess_insight.game" -> "chess_insight.semi_dataclass" [arrowhead="open", arrowtail="none"];
+"chess_insight.game" -> "chess_insight.utils" [arrowhead="open", arrowtail="none"];
+"chess_insight.lichess_api_communicator" -> "chess_insight.api_communicator" [arrowhead="open", arrowtail="none"];
+"chess_insight.player" -> "chess_insight.semi_dataclass" [arrowhead="open", arrowtail="none"];
+"chess_insight.player" -> "chess_insight.utils" [arrowhead="open", arrowtail="none"];
+}

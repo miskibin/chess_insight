@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1072pt" height="610pt" viewBox="0.00 0.00 1071.72 609.60">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 605.6)">
+<title>classes</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-605.6 1067.7229,-605.6 1067.7229,4 -4,4"/>
+<!-- api_communicator.ApiCommunicator -->
+<g id="node1" class="node">
+<title>api_communicator.ApiCommunicator</title>
+<polygon fill="none" stroke="#000000" points="10.9978,-242.1 10.9978,-358.5 563.482,-358.5 563.482,-242.1 10.9978,-242.1"/>
+<text text-anchor="start" x="234.7469" y="-341.9" font-family="Times,serif" font-size="14.00" fill="#000000">ApiCommunicator</text>
+<polyline fill="none" stroke="#000000" points="10.9978,-333.7 563.482,-333.7 "/>
+<text text-anchor="start" x="197.0358" y="-317.1" font-family="Times,serif" font-size="14.00" fill="#000000">HOST : Optional[str]</text>
+<text text-anchor="start" x="197.0358" y="-300.3" font-family="Times,serif" font-size="14.00" fill="#000000">stockfish : NoneType, Stockfish</text>
+<polyline fill="none" stroke="#000000" points="10.9978,-292.1 563.482,-292.1 "/>
+<text text-anchor="start" x="18.9978" y="-276.5" font-family="Times,serif" font-size="14.00" fill="#000000">games_generator(username: str, count: int, time_class: str): Generator[Game, None, None]</text>
+<text text-anchor="start" x="18.9978" y="-262.5" font-family="Times,serif" font-style="italic" font-size="14.00" fill="#000000">get_pgns</text>
+<text text-anchor="start" x="69.5476" y="-262.5" font-family="Times,serif" font-size="14.00" fill="#000000">(username: str, number_of_games: int, time_class: str): Generator[Game, None, None]</text>
+<text text-anchor="start" x="18.9978" y="-248.5" font-family="Times,serif" font-size="14.00" fill="#000000">split_pgns(text_pgn: str): list[str]</text>
+</g>
+<!-- chess_com_api_communicator.ChessComApiCommunicator -->
+<g id="node2" class="node">
+<title>chess_com_api_communicator.ChessComApiCommunicator</title>
+<polygon fill="none" stroke="#000000" points="0,-17.3 0,-91.7 346.4798,-91.7 346.4798,-17.3 0,-17.3"/>
+<text text-anchor="start" x="90.4131" y="-75.1" font-family="Times,serif" font-size="14.00" fill="#000000">ChessComApiCommunicator</text>
+<polyline fill="none" stroke="#000000" points="0,-66.9 346.4798,-66.9 "/>
+<text text-anchor="start" x="142.5225" y="-50.3" font-family="Times,serif" font-size="14.00" fill="#000000">HOST : str</text>
+<polyline fill="none" stroke="#000000" points="0,-42.1 346.4798,-42.1 "/>
+<text text-anchor="start" x="8" y="-25.5" font-family="Times,serif" font-size="14.00" fill="#000000">get_pgns(username: str, count: int, time_class: str): list[str]</text>
+</g>
+<!-- chess_com_api_communicator.ChessComApiCommunicator&#45;&gt;api_communicator.ApiCommunicator -->
+<g id="edge1" class="edge">
+<title>chess_com_api_communicator.ChessComApiCommunicator-&gt;api_communicator.ApiCommunicator</title>
+<path fill="none" stroke="#000000" d="M190.554,-91.8317C207.8611,-129.1481 234.8586,-187.3586 255.9316,-232.7949"/>
+<polygon fill="none" stroke="#000000" points="252.8149,-234.3937 260.1975,-241.9928 259.1652,-231.4484 252.8149,-234.3937"/>
+</g>
+<!-- game.Game -->
+<g id="node3" class="node">
+<title>game.Game</title>
+<polygon fill="none" stroke="#000000" points="695.332,-162.3 695.332,-438.3 1021.1478,-438.3 1021.1478,-162.3 695.332,-162.3"/>
+<text text-anchor="start" x="841.5267" y="-421.7" font-family="Times,serif" font-size="14.00" fill="#000000">Game</text>
+<polyline fill="none" stroke="#000000" points="695.332,-413.5 1021.1478,-413.5 "/>
+<text text-anchor="start" x="703.332" y="-396.9" font-family="Times,serif" font-size="14.00" fill="#000000">date</text>
+<text text-anchor="start" x="703.332" y="-380.1" font-family="Times,serif" font-size="14.00" fill="#000000">end_reason</text>
+<text text-anchor="start" x="703.332" y="-363.3" font-family="Times,serif" font-size="14.00" fill="#000000">host : Annotated[str, 'Server where game was played.']</text>
+<text text-anchor="start" x="703.332" y="-346.5" font-family="Times,serif" font-size="14.00" fill="#000000">opening : str</text>
+<text text-anchor="start" x="703.332" y="-329.7" font-family="Times,serif" font-size="14.00" fill="#000000">opening_short</text>
+<text text-anchor="start" x="703.332" y="-312.9" font-family="Times,serif" font-size="14.00" fill="#000000">phases</text>
+<text text-anchor="start" x="703.332" y="-296.1" font-family="Times,serif" font-size="14.00" fill="#000000">player</text>
+<text text-anchor="start" x="703.332" y="-279.3" font-family="Times,serif" font-size="14.00" fill="#000000">player_color</text>
+<text text-anchor="start" x="703.332" y="-262.5" font-family="Times,serif" font-size="14.00" fill="#000000">result</text>
+<text text-anchor="start" x="703.332" y="-245.7" font-family="Times,serif" font-size="14.00" fill="#000000">time_class : str</text>
+<text text-anchor="start" x="703.332" y="-228.9" font-family="Times,serif" font-size="14.00" fill="#000000">time_control</text>
+<text text-anchor="start" x="703.332" y="-212.1" font-family="Times,serif" font-size="14.00" fill="#000000">url : Annotated[str, 'Url to game.']</text>
+<text text-anchor="start" x="703.332" y="-195.3" font-family="Times,serif" font-size="14.00" fill="#000000">username : str</text>
+<polyline fill="none" stroke="#000000" points="695.332,-187.1 1021.1478,-187.1 "/>
+<text text-anchor="start" x="856.4899" y="-170.5" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</g>
+<!-- semi_dataclass.SemiDataclass -->
+<g id="node6" class="node">
+<title>semi_dataclass.SemiDataclass</title>
+<polygon fill="none" stroke="#000000" points="895.6813,-476.3 895.6813,-601.1 1010.7985,-601.1 1010.7985,-476.3 895.6813,-476.3"/>
+<text text-anchor="start" x="912.033" y="-584.5" font-family="Times,serif" font-size="14.00" fill="#000000">SemiDataclass</text>
+<polyline fill="none" stroke="#000000" points="895.6813,-576.3 1010.7985,-576.3 "/>
+<polyline fill="none" stroke="#000000" points="895.6813,-551.5 1010.7985,-551.5 "/>
+<text text-anchor="start" x="903.6813" y="-534.9" font-family="Times,serif" font-size="14.00" fill="#000000">asdict(): dict</text>
+<text text-anchor="start" x="903.6813" y="-518.1" font-family="Times,serif" font-size="14.00" fill="#000000">flatten(): dict</text>
+<text text-anchor="start" x="903.6813" y="-501.3" font-family="Times,serif" font-size="14.00" fill="#000000">print_md(): None</text>
+<text text-anchor="start" x="903.6813" y="-484.5" font-family="Times,serif" font-size="14.00" fill="#000000">render_docs(): str</text>
+</g>
+<!-- game.Game&#45;&gt;semi_dataclass.SemiDataclass -->
+<g id="edge2" class="edge">
+<title>game.Game-&gt;semi_dataclass.SemiDataclass</title>
+<path fill="none" stroke="#000000" d="M913.3643,-438.6332C917.1813,-448.2118 920.9308,-457.6212 924.5108,-466.6051"/>
+<polygon fill="none" stroke="#000000" points="921.3709,-468.1806 928.3241,-476.1746 927.8736,-465.5893 921.3709,-468.1806"/>
+</g>
+<!-- lichess_api_communicator.LichessApiCommunicator -->
+<g id="node4" class="node">
+<title>lichess_api_communicator.LichessApiCommunicator</title>
+<polygon fill="none" stroke="#000000" points="364,-8.9 364,-100.1 710.4798,-100.1 710.4798,-8.9 364,-8.9"/>
+<text text-anchor="start" x="463.3661" y="-83.5" font-family="Times,serif" font-size="14.00" fill="#000000">LichessApiCommunicator</text>
+<polyline fill="none" stroke="#000000" points="364,-75.3 710.4798,-75.3 "/>
+<text text-anchor="start" x="489.8023" y="-58.7" font-family="Times,serif" font-size="14.00" fill="#000000">CLIENT : Client</text>
+<text text-anchor="start" x="489.8023" y="-41.9" font-family="Times,serif" font-size="14.00" fill="#000000">HOST : str</text>
+<polyline fill="none" stroke="#000000" points="364,-33.7 710.4798,-33.7 "/>
+<text text-anchor="start" x="372" y="-17.1" font-family="Times,serif" font-size="14.00" fill="#000000">get_pgns(username: str, count: int, time_class: str): list[str]</text>
+</g>
+<!-- lichess_api_communicator.LichessApiCommunicator&#45;&gt;api_communicator.ApiCommunicator -->
+<g id="edge3" class="edge">
+<title>lichess_api_communicator.LichessApiCommunicator-&gt;api_communicator.ApiCommunicator</title>
+<path fill="none" stroke="#000000" d="M490.8027,-100.157C452.359,-137.9549 397.2428,-192.1451 354.0547,-234.6077"/>
+<polygon fill="none" stroke="#000000" points="351.3614,-232.3473 346.6845,-241.854 356.2691,-237.3388 351.3614,-232.3473"/>
+</g>
+<!-- player.Player -->
+<g id="node5" class="node">
+<title>player.Player</title>
+<polygon fill="none" stroke="#000000" points="863.1368,-.5 863.1368,-108.5 969.343,-108.5 969.343,-.5 863.1368,-.5"/>
+<text text-anchor="start" x="898.3584" y="-91.9" font-family="Times,serif" font-size="14.00" fill="#000000">Player</text>
+<polyline fill="none" stroke="#000000" points="863.1368,-83.7 969.343,-83.7 "/>
+<text text-anchor="start" x="871.1368" y="-67.1" font-family="Times,serif" font-size="14.00" fill="#000000">avg_move_time</text>
+<text text-anchor="start" x="871.1368" y="-50.3" font-family="Times,serif" font-size="14.00" fill="#000000">elo</text>
+<text text-anchor="start" x="871.1368" y="-33.5" font-family="Times,serif" font-size="14.00" fill="#000000">evaluation</text>
+<polyline fill="none" stroke="#000000" points="863.1368,-25.3 969.343,-25.3 "/>
+<text text-anchor="start" x="914.4899" y="-8.7" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</g>
+<!-- player.Player&#45;&gt;game.Game -->
+<g id="edge5" class="edge">
+<title>player.Player-&gt;game.Game</title>
+<path fill="none" stroke="#000000" d="M867.7553,-108.9046C864.3561,-114.7319 861.4236,-120.8033 859.2595,-127 856.6574,-134.4507 854.5779,-142.1941 852.9411,-150.0917"/>
+<polygon fill="#000000" stroke="#000000" points="852.8926,-150.3645 855.7775,-156.9734 850.7866,-162.1783 847.9017,-155.5694 852.8926,-150.3645"/>
+<text text-anchor="middle" x="876.7301" y="-131.2" font-family="Times,serif" font-size="14.00" fill="#00ff00">player</text>
+</g>
+<!-- player.Player&#45;&gt;game.Game -->
+<g id="edge6" class="edge">
+<title>player.Player-&gt;game.Game</title>
+<path fill="none" stroke="#000000" d="M903.4398,-108.7461C900.4389,-121.4635 897.0973,-135.625 893.6273,-150.3305"/>
+<polygon fill="#000000" stroke="#000000" points="893.577,-150.5442 896.0921,-157.3025 890.821,-162.2235 888.3059,-155.4652 893.577,-150.5442"/>
+<text text-anchor="middle" x="924.2925" y="-131.2" font-family="Times,serif" font-size="14.00" fill="#00ff00">opponent</text>
+</g>
+<!-- player.Player&#45;&gt;semi_dataclass.SemiDataclass -->
+<g id="edge4" class="edge">
+<title>player.Player-&gt;semi_dataclass.SemiDataclass</title>
+<path fill="none" stroke="#000000" d="M969.4143,-89.2301C992.7314,-107.6868 1017.6273,-132.608 1030.2399,-161.8 1079.0683,-274.8139 1069.9388,-322.2653 1030.2399,-438.8 1026.8687,-448.696 1022.0769,-458.3754 1016.5116,-467.5748"/>
+<polygon fill="none" stroke="#000000" points="1013.408,-465.9311 1010.9599,-476.2393 1019.3019,-469.7076 1013.408,-465.9311"/>
+</g>
+</g>
+</svg>

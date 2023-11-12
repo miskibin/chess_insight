@@ -104,11 +104,11 @@ def main():
     console.print("Games downloaded!")
     if general.file_format == "csv":
         df = export_games_to_csv(games, f"{general.file_name}.csv")
-        console.print("Games exported to {general.file_name}.csv!")
+        console.print(f"Games exported to {general.file_name}.csv!")
         console.print(df.head())
     else:
         export_games_to_json(games, f"{general.file_name}.json")
-        console.print("Games exported to {general.file_name}.json!")
+        console.print(f"Games exported to {general.file_name}.json!")
         console.print(games[0].asdict())
 
 

@@ -1,16 +1,15 @@
-import json
-import os
 from abc import ABC
+from abc import abstractmethod
 from logging import Logger
 from pathlib import Path
 from typing import Generator
-from abc import abstractmethod
-import requests
-from stockfish import Stockfish
+
 from easy_logs import get_logger
-from chess_insight.game import Game
 from rich.progress import track
 from rich.status import Status
+from stockfish import Stockfish
+
+from chess_insight.game import Game
 
 logger = get_logger()
 

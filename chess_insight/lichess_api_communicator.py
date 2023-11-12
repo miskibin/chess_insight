@@ -36,13 +36,10 @@ if __name__ == "__main__":
     from pathlib import Path
 
     tests_path = Path(__file__).parent.parent / "tests" / "test_data"
-    games = lichess.games_generator("pro100wdupe", 20, "blitz")
-    for game in games:
-        game.asdict()
-    # for i, game in enumerate(games):
-    #     with open(tests_path / f"pro100wdupe_lichess_{i}.pgn", "w") as f:
-    #         f.write(game)
+    username = "drnykterstein"
+    games = lichess.get_pgns(username, 5, "blitz")
+    for i, game in enumerate(games):
+        with open(tests_path / f"{username}_lichess_{i}.pgn", "w") as f:
+            f.write(game)
 
     # pprint(list(lichess.get_games("Pro100wdupe", 1, "rapid")))
-    # valid = lichess.get_valid_username("michal")
-    # pprint(valid)
