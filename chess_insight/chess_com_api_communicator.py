@@ -18,8 +18,8 @@ class ChessComApiCommunicator(ApiCommunicator):
         try:
             user = chessdotcom.get_player_profile(usr).json
         except ChessDotComError as err:
-            logger.error(f"Failed to get user {usr} from {self.HOST}: {err.text}")
-            raise ValueError(f"Failed to get user {usr} from {self.HOST}: {err.text}")
+            logger.error(f"Failed to get user {usr} from {self.HOST}")
+            raise ValueError(f"Failed to get user {usr} from {self.HOST}")
         joined = user["player"]["joined"]
         year = datetime.fromtimestamp(joined).year
         logger.debug(f"User {usr} joined in year: {year}")
