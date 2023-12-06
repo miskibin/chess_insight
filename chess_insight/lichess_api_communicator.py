@@ -22,6 +22,7 @@ class LichessApiCommunicator(ApiCommunicator):
             logger.error(f"Failed to get games from {self.HOST}: {err}")
             if err.status_code == 404:
                 logger.error(f"User {username} doesn't exist on {self.HOST}.")
+                raise ValueError(f"User {username} doesn't exist on {self.HOST}.")
             raise err
         if len(list_of_games) < count:
             logger.warning(
