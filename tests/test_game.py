@@ -8,6 +8,8 @@ from stockfish import Stockfish
 from datetime import datetime
 import os
 
+from stockfish import Stockfish
+
 test_data_path = Path(__file__).parent / "test_data"
 
 
@@ -44,3 +46,18 @@ class TestGame:
 
     def _get_usr(self, pgn_path: str):
         return Path(pgn_path).stem.split("_")[0]
+
+    def test_FR4_stockfish_integration(self):
+        pgn_string = Path(test_data_path / "drnykterstein_lichess_0.pgn").read_text()
+        username = "drnykterstein"
+        depth = 1  # depth of the game analysis
+        # Initialize the Stockfish engine with the specified depth
+        stockfish = Stockfish(depth=depth)
+        # Initialize the Game object with the Stockfish engine
+        game = Game(pgn_string, username, stockfish)
+        # Perform the game analysis
+        evaluations = game._get_evaluations(stockfish)
+        # Check if the game analysis is performed correctly
+        assert evaluations is not None
+        assert isinstance(evaluations, list)
+        assert all(isinstance(evaluation, dict) for evaluation in evaluations)
