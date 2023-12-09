@@ -1,15 +1,41 @@
 import pytest
 from pathlib import Path
 import glob
+import pytest
 from chess_insight.game import Game
-
+from chess_insight.player import Player
+from stockfish import Stockfish
+from datetime import datetime
+import os
 
 test_data_path = Path(__file__).parent / "test_data"
 
 
 class TestGame:
-    @pytest.mark.parametrize("pgn_path", glob.glob(str(test_data_path / "*.pgn")))
-    def test_game(self, pgn_path):
+    def test_FR3_game_properties(self):
+        pgn_string = Path(test_data_path / "drnykterstein_lichess_0.pgn").read_text()
+        game = Game(pgn_string, "DrNykterstein")
+
+        assert game.host == "lichess.org"
+        assert game.username == "DrNykterstein"
+        assert game.time_class == "blitz"
+        assert game.opening == "Nimzo-Larsen Attack: Classical Variation"
+        assert game.url == "https://lichess.org/kx7aGZB0"
+        assert isinstance(game.player, Player)
+        assert isinstance(game.opponent, Player)
+        assert game.result.value == "1-0"
+        assert game.player.elo == 3113
+        assert game.opponent.elo == 2718
+        assert game.date == datetime(2023, 7, 1, 21, 56, 43)
+
+    @pytest.mark.parametrize(
+        "pgn_path",
+        glob.glob(str(test_data_path / "*.pgn")),
+        ids=[
+            os.path.basename(path) for path in glob.glob(str(test_data_path / "*.pgn"))
+        ],
+    )
+    def test_FR3_game(self, pgn_path):
         usr = self._get_usr(pgn_path)
         with open(pgn_path, "r") as f:
             game = Game(f.read(), usr)

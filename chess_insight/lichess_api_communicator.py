@@ -1,5 +1,6 @@
 from chess_insight.api_communicator import ApiCommunicator
 from typing import Generator
+from berserk import Client
 import berserk
 from easy_logs import get_logger
 import os
@@ -9,7 +10,7 @@ logger = get_logger()
 
 class LichessApiCommunicator(ApiCommunicator):
     HOST = "lichess.org"
-    CLIENT = berserk.Client()
+    CLIENT = Client()
 
     def get_pgns(self, username: str, count: int, time_class: str) -> list[str]:
         games = self.CLIENT.games.export_by_player(

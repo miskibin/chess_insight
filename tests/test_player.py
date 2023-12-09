@@ -6,7 +6,7 @@ import chess
 
 
 class TestPlayer:
-    def test_init(self):
+    def test_FR3_init(self):
         pgn = chess.pgn.Game()
         board = chess.Board()
         color = Color.WHITE
@@ -19,7 +19,7 @@ class TestPlayer:
         assert player._phases == game_phases
         assert player._evaluations == evaluations
 
-    def test_elo(self):
+    def test_FR3_elo(self):
         pgn = chess.pgn.Game()
         pgn.headers["WhiteElo"] = "2000"
         player = Player(
